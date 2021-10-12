@@ -6,8 +6,9 @@ import lombok.experimental.SuperBuilder;
 import javax.persistence.Entity;
 
 @SuperBuilder(toBuilder = true)
-@Entity
 @NoArgsConstructor
-public class CaseBlock extends Manufacturer {
-    private CaseFormFactor formFactor;
+@Entity
+public class Ram extends Manufacturer {
+    private RamType ramType;
+    private int size;
 }
