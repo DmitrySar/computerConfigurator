@@ -4,6 +4,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @SuperBuilder(toBuilder = true)
 @NoArgsConstructor
@@ -13,4 +14,6 @@ public class MotherBoard extends Manufacturer {
     private RamType ramType;
     private CpuSocket cpuSocket;
     private HddType hddType;
+    @OneToOne
+    private SystemBlock systemBlock;
 }
