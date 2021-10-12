@@ -1,17 +1,21 @@
 package com.example.computerConfigurator.blocks;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.List;
 
-@SuperBuilder(toBuilder = true)
 @Entity
 @NoArgsConstructor
+@Data
 public class SystemBlock extends Manufacturer {
+    @Id
+    @GeneratedValue
+    private int id;
+    @OneToOne
+    private Manufacturer manufacturer;
     @OneToOne
     private CaseBlock caseBlock;
     @OneToOne

@@ -7,5 +7,30 @@
 </head>
 <body>
 <H1>PC configurator</H1>
+<h2 Add cpu/>
+<form th:object="${cpu}" method="post">
+    <input placeholder="vendor" type="text" th:field="*{manufacturer.vendor}"/><br>
+    <input placeholder="model" type="text" th:field="*{manufacturer.model}"/><br>
+    <select th:field="*{cpuSocket}" name="socket">
+        <option th:each="socket : ${T(com.example.computerConfigurator.blocks.CpuSocket).values()}"
+        th:value="${socket}" th:text="${socket}"/>
+    </select><br>
+    <input placeholder="price" type="text" th:field="*{manufacturer.price}" /><br>
+    <input type="submit">
+
+</form>
+
+<h2>
+    CPU
+</h2>
+<table>
+    <tr th:each="cpu: ${cpuList}">
+        <td th:text="${cpu.id}"/>
+        <td th:text="${cpu.manufacturer.vendor}"/>
+        <td th:text="${cpu.manufacturer.model}"/>
+        <td th:text="${cpu.cpuSocket}"/>
+        <td th:text="${cpu.manufacturer.price}"/>
+    </tr>
+</table>
 </body>
 </html>
