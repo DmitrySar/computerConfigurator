@@ -6,8 +6,8 @@
     <title>Configurator</title>
 </head>
 <body>
-<H1>PC configurator</H1>
-<h2 Add cpu/>
+<H1>Add cpu</H1>
+
 <form th:object="${cpu}" method="post">
     <input placeholder="vendor" type="text" th:field="*{manufacturer.vendor}"/><br>
     <input placeholder="model" type="text" th:field="*{manufacturer.model}"/><br>
@@ -24,6 +24,10 @@
     CPU
 </h2>
 <table>
+    <tr>
+        <th>id</th><th>vendor</th><th>model</th><th>socket</th><th>price</th>
+    </tr>
+
     <tr th:each="cpu: ${cpuList}">
         <td th:text="${cpu.id}"/>
         <td th:text="${cpu.manufacturer.vendor}"/>
