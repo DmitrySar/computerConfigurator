@@ -25,7 +25,7 @@
 </h2>
 <table>
     <tr>
-        <th>id</th><th>vendor</th><th>model</th><th>socket</th><th>price</th>
+        <th>id</th><th>vendor</th><th>model</th><th>socket</th><th>price</th><th>del</th>
     </tr>
 
     <tr th:each="cpu: ${cpuList}">
@@ -34,6 +34,7 @@
         <td th:text="${cpu.manufacturer.model}"/>
         <td th:text="${cpu.cpuSocket}"/>
         <td th:text="${cpu.manufacturer.price}"/>
+        <td><a th:href="@{/cpu/delcpu(id=${cpu.id})}"> - </a> </td>
     </tr>
 </table>
 </body>

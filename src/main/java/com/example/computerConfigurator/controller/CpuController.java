@@ -3,12 +3,11 @@ package com.example.computerConfigurator.controller;
 import com.example.computerConfigurator.blocks.Cpu;
 import com.example.computerConfigurator.repository.ManufacturerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import com.example.computerConfigurator.repository.CpuRepository;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class CpuController {
@@ -28,11 +27,17 @@ public class CpuController {
         return "cpu";
     }
 
+    @GetMapping("/cpu/delcpu")
+    public String delCpu(@RequestParam int id) {
+        cpuRepository.delete(cpuRepository.findById(id).get());
+        return "redirect:/cpu";
+    }
+
     @PostMapping("cpu")
     public String postCpu(@ModelAttribute Cpu cpu, Model model) {
         model.addAttribute("cpu", cpu);
         manufacturerRepository.save(cpu.getManufacturer());
         cpuRepository.save(cpu);
-        return "redirect:cpu";
+        return "redirect:/cpu";
     }
 }
