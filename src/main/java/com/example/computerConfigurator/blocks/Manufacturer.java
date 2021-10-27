@@ -21,6 +21,4 @@ public class Manufacturer {
     private String vendor;
     private String model;
     private int price;
-    @OneToOne
-    private Cpu cpu;
 }

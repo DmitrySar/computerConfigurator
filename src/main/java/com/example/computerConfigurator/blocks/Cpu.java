@@ -21,6 +21,5 @@ public class Cpu {
     @OneToOne
     private Manufacturer manufacturer;
     private CpuSocket cpuSocket;
-    @OneToOne
-    private SystemBlock systemBlock;
+
 }

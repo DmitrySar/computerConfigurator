@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.computerConfigurator.repository.CpuRepository;
 
 @Controller
+@RequestMapping("/cpu")
 public class CpuController {
     private CpuRepository cpuRepository;
     private ManufacturerRepository manufacturerRepository;
@@ -20,20 +21,20 @@ public class CpuController {
         this.manufacturerRepository = manufacturerRepository;
     }
 
-    @GetMapping("cpu")
+    @GetMapping()
     public String mainPage(Model model) {
         model.addAttribute("cpuList", cpuRepository.findAll());
         model.addAttribute("cpu", new Cpu());
         return "cpu";
     }
 
-    @GetMapping("/cpu/delcpu")
+    @GetMapping("delcpu")
     public String delCpu(@RequestParam int id) {
         cpuRepository.delete(cpuRepository.findById(id).get());
         return "redirect:/cpu";
     }
 
-    @PostMapping("cpu")
+    @PostMapping("")
     public String postCpu(@ModelAttribute Cpu cpu, Model model) {
         model.addAttribute("cpu", cpu);
         manufacturerRepository.save(cpu.getManufacturer());

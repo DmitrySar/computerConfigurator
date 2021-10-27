@@ -22,6 +22,5 @@ public class MotherBoard extends Manufacturer {
     private RamType ramType;
     private CpuSocket cpuSocket;
     private HddType hddType;
-    @OneToOne
-    private SystemBlock systemBlock;
+
 }

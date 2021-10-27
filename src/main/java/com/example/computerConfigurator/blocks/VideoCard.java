@@ -18,7 +18,5 @@ public class VideoCard extends Manufacturer {
     private int id;
     @OneToOne
     private Manufacturer manufacturer;
-    @OneToOne
-    SystemBlock systemBlock;
 
 }

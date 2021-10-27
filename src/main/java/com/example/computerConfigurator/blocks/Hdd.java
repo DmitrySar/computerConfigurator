@@ -17,6 +17,5 @@ public class Hdd extends Manufacturer {
     private Manufacturer manufacturer;
     private HddType hddType;
     private int size;
-    @ManyToOne
-    private SystemBlock systemBlock;
+
 }

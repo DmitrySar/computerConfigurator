@@ -17,6 +17,5 @@ public class Ram extends Manufacturer {
     private Manufacturer manufacturer;
     private RamType ramType;
     private int size;
-    @ManyToOne
-    SystemBlock systemBlock;
+
 }
