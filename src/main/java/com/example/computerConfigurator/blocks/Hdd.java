@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @Data
-public class Hdd extends Manufacturer {
+public class Hdd {
     @Id
     @GeneratedValue
     private int id;

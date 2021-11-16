@@ -18,8 +18,8 @@ public class Cpu {
     @Id
     @GeneratedValue
     private int id;
+    private CpuSocket cpuSocket;
     @OneToOne
     private Manufacturer manufacturer;
-    private CpuSocket cpuSocket;
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Data
-public class SystemBlock extends Manufacturer {
+public class SystemBlock {
     @Id
     @GeneratedValue
     private int id;

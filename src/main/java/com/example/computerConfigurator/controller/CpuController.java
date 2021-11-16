@@ -24,13 +24,15 @@ public class CpuController {
     @GetMapping()
     public String mainPage(Model model) {
         model.addAttribute("cpuList", cpuRepository.findAll());
-        model.addAttribute("cpu", new Cpu());
+        model.addAttribute("cpu", cpuRepository.findFirstByOrderByIdDesc().orElse(new Cpu()));
         return "cpu";
     }
 
     @GetMapping("delcpu")
     public String delCpu(@RequestParam int id) {
-        cpuRepository.delete(cpuRepository.findById(id).get());
+        Cpu cpu = cpuRepository.findById(id).get();
+        cpuRepository.delete(cpu);
+        manufacturerRepository.delete(cpu.getManufacturer());
         return "redirect:/cpu";
     }
 

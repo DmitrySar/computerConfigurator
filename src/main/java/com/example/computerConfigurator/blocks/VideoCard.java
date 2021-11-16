@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 @Entity
 @NoArgsConstructor
 @Data
-public class VideoCard extends Manufacturer {
+public class VideoCard {
     @Id
     @GeneratedValue
     private int id;

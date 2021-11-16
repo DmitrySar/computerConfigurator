@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 @Entity
 @NoArgsConstructor
 @Data
-public class MotherBoard extends Manufacturer {
+public class MotherBoard {
     @Id
     @GeneratedValue
     private int id;

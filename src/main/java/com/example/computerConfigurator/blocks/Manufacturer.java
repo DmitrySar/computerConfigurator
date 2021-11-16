@@ -21,4 +21,5 @@ public class Manufacturer {
     private String vendor;
     private String model;
     private int price;
+    private String serialNumber;
 }
