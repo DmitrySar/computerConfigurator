@@ -6,10 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
@@ -19,7 +16,7 @@ public class Cpu {
     @GeneratedValue
     private int id;
     private CpuSocket cpuSocket;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Manufacturer manufacturer;
 
 }

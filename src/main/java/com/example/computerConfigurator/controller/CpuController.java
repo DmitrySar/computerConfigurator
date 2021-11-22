@@ -13,12 +13,10 @@ import com.example.computerConfigurator.repository.CpuRepository;
 @RequestMapping("/cpu")
 public class CpuController {
     private CpuRepository cpuRepository;
-    private ManufacturerRepository manufacturerRepository;
 
     @Autowired
     public CpuController(CpuRepository cpuRepository, ManufacturerRepository manufacturerRepository) {
         this.cpuRepository = cpuRepository;
-        this.manufacturerRepository = manufacturerRepository;
     }
 
     @GetMapping()
@@ -32,14 +30,12 @@ public class CpuController {
     public String delCpu(@RequestParam int id) {
         Cpu cpu = cpuRepository.findById(id).get();
         cpuRepository.delete(cpu);
-        manufacturerRepository.delete(cpu.getManufacturer());
         return "redirect:/cpu";
     }
 
-    @PostMapping("")
+    @PostMapping("add")
     public String postCpu(@ModelAttribute Cpu cpu, Model model) {
         model.addAttribute("cpu", cpu);
-        manufacturerRepository.save(cpu.getManufacturer());
         cpuRepository.save(cpu);
         return "redirect:/cpu";
     }

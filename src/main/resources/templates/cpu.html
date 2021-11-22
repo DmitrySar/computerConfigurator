@@ -8,38 +8,32 @@
 <body>
 <H1>Add cpu</H1>
 
-<form th:object="${cpu}" method="post">
-    <input placeholder="vendor" type="text" th:field="*{manufacturer.vendor}"/><br>
-    <input placeholder="model" type="text" th:field="*{manufacturer.model}"/><br>
+<form th:object="${cpu}" method="post" action="/cpu/add">
     <select th:field="*{cpuSocket}" name="socket">
         <option th:each="socket : ${T(com.example.computerConfigurator.blocks.CpuSocket).values()}"
-        th:value="${socket}" th:text="${socket}"/>
+                th:value="${socket}" th:text="${socket}"/>
     </select><br>
-    <input placeholder="S/N" type="text" th:field="*{manufacturer.serialNumber}"><br>
-    <input placeholder="price" type="text" th:field="*{manufacturer.price}" /><br>
-    <input type="submit">
+    <div th:replace="fragments/manufacturer :: form"></div>
+    <input type="submit" value="add">
 
 </form>
+
 
 <h2>
     CPU
 </h2>
 <table>
     <tr>
-        <th>id</th>
+        <th>socket</th>
         <th>vendor</th>
         <th>model</th>
-        <th>socket</th>
         <th>price</th>
         <th>del</th>
     </tr>
 
     <tr th:each="cpu: ${cpuList}">
-        <td th:text="${cpu.id}"/>
-        <td th:text="${cpu.manufacturer.vendor}"/>
-        <td th:text="${cpu.manufacturer.model}"/>
         <td th:text="${cpu.cpuSocket}"/>
-        <td th:text="${cpu.manufacturer.price}"/>
+        <span th:replace="fragments/manufacturer :: table(cpu = ${cpu})"></span>
         <td><a th:href="@{/cpu/delcpu(id=${cpu.id})}"> - </a> </td>
     </tr>
 </table>

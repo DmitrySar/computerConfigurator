@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>fragments</title>
+</head>
+<body>
+<div th:fragment="form">
+    <input placeholder="vendor" type="text" name="manufacturer.vendor"/><br>
+    <input placeholder="model" type="text" name="manufacturer.model"/><br>
+    <input placeholder="S/N" type="text" name="manufacturer.serialNumber"><br>
+    <input placeholder="price" type="text" name="manufacturer.price" /><br>
+
+</div>
+
+<div th:fragment="table(cpu)">
+    <td th:text="${cpu.manufacturer.vendor}"/>
+    <td th:text="${cpu.manufacturer.model}"/>
+    <td th:text="${cpu.manufacturer.price}"/>
+</div>
+</body>
+</html>

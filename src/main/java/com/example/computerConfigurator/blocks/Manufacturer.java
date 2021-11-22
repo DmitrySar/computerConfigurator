@@ -22,4 +22,5 @@ public class Manufacturer {
     private String model;
     private int price;
     private String serialNumber;
+    private String urlImage;
 }
