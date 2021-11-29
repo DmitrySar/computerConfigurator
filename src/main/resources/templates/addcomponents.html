@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add components</title>
+</head>
+<body>
+<h1>Добавление модулей</h1>
+<div>
+    <h2>Add motherboard</h2>
+    <form method="post" action="/addcomponents/addMb" th:object="${mboard}">
+        <div th:replace="fragments/types :: module(name ='caseFormFactor', values = ${caseFormsFactor})" />
+        <div th:replace="fragments/types :: module(name = 'cpuSocket', values = ${cpuSockets})" />
+        <div th:replace="fragments/types :: module(name = 'ramType', values = ${ramTypes})" />
+        <div th:replace="fragments/types :: module(name = 'hddType', values = ${hddTypes})" />
+        <div th:replace="fragments/manufacturer :: form" />
+        <input type="submit" value="add">
+    </form>
+
+    <h2> Motherboards </h2>
+    <table>
+        <tr>
+            <th>FormFactor</th>
+            <th>Cpu socket</th>
+            <th>Ram type</th>
+            <th>Hdd type</th>
+            <div th:replace="fragments/manufacturer :: tableTh" />
+        </tr>
+        <tr th:each="mb: ${motherboards}">
+            <td th:text="${mb.caseFormFactor}" />
+            <td th:text="${mb.cpuSocket}" />
+            <td th:text="${mb.ramType}" />
+            <td th:text="${mb.hddType}" />
+            <span th:replace="fragments/manufacturer :: table(m = ${mb})" />
+        </tr>
+    </table>
+</div>
+
+<div>
+    <h2>Add CPU</h2>
+    <form action="/addcomponents/addCpu" method="post" th:object="${cpu}">
+        <select name="cpuSocket">
+            <option th:each="c: ${cpuSockets}" th:value="${c}" th:text="${c}" />
+        </select><br>
+        <div th:replace="fragments/manufacturer :: form" />
+        <input type="submit" value="add CPU">
+    </form>
+
+    <h2>CPU list</h2>
+    <table>
+        <th>Socket</th>
+        <div th:replace="fragments/manufacturer :: tableTh" />
+        <tr th:each="c: ${cpuList}">
+            <td th:text="${c.cpuSocket}" />
+            <span th:replace="fragments/manufacturer :: table(m = ${c})" />
+        </tr>
+    </table>
+</div>
+</body>
+</html>

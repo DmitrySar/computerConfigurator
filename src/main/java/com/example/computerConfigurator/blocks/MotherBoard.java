@@ -4,10 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
@@ -16,7 +13,7 @@ public class MotherBoard {
     @Id
     @GeneratedValue
     private int id;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Manufacturer manufacturer;
     private CaseFormFactor caseFormFactor;
     private RamType ramType;

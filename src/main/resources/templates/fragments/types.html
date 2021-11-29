@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="module(name, values)">
+
+    <select th:name="${name}">
+        <option th:each="v: ${values}" th:value="${v}" th:text="${v}" />
+    </select><br>
+</div>
+
+</body>
+</html>

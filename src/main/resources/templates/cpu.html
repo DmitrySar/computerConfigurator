@@ -25,15 +25,13 @@
 <table>
     <tr>
         <th>socket</th>
-        <th>vendor</th>
-        <th>model</th>
-        <th>price</th>
+        <div th:replace="fragments/manufacturer :: tableTh" />
         <th>del</th>
     </tr>
 
     <tr th:each="cpu: ${cpuList}">
         <td th:text="${cpu.cpuSocket}"/>
-        <span th:replace="fragments/manufacturer :: table(cpu = ${cpu})"></span>
+        <span th:replace="fragments/manufacturer :: table(m = ${cpu})"></span>
         <td><a th:href="@{/cpu/delcpu(id=${cpu.id})}"> - </a> </td>
     </tr>
 </table>

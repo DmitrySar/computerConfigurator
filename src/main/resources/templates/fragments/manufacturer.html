@@ -13,10 +13,16 @@
 
 </div>
 
-<div th:fragment="table(cpu)">
-    <td th:text="${cpu.manufacturer.vendor}"/>
-    <td th:text="${cpu.manufacturer.model}"/>
-    <td th:text="${cpu.manufacturer.price}"/>
+<div th:fragment="table(m)">
+    <td th:text="${m.manufacturer.vendor}"/>
+    <td th:text="${m.manufacturer.model}"/>
+    <td th:text="${m.manufacturer.price}"/>
+</div>
+
+<div th:fragment="tableTh">
+    <th>vendor</th>
+    <th>model</th>
+    <th>price</th>
 </div>
 </body>
 </html>

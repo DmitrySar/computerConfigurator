@@ -15,11 +15,11 @@ public class CpuController {
     private CpuRepository cpuRepository;
 
     @Autowired
-    public CpuController(CpuRepository cpuRepository, ManufacturerRepository manufacturerRepository) {
+    public CpuController(CpuRepository cpuRepository) {
         this.cpuRepository = cpuRepository;
     }
 
-    @GetMapping()
+    @GetMapping
     public String mainPage(Model model) {
         model.addAttribute("cpuList", cpuRepository.findAll());
         model.addAttribute("cpu", cpuRepository.findFirstByOrderByIdDesc().orElse(new Cpu()));
