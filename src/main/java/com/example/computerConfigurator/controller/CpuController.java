@@ -30,7 +30,7 @@ public class CpuController {
     public String delCpu(@RequestParam int id) {
         Cpu cpu = cpuRepository.findById(id).get();
         cpuRepository.delete(cpu);
-        return "redirect:/cpu";
+        return "redirect:/addcomponents#cpu";
     }
 
     @PostMapping("add")

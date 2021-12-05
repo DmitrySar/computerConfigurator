@@ -30,8 +30,8 @@
     background-color: rgba(227, 242, 253, 0.3);
 }
 
-.tabs>#content-1:target~.tabs__links>a[href="#content-1"],
-.tabs>#content-2:target~.tabs__links>a[href="#content-2"],
+.tabs>#content-1:target~.tabs__links>a[href="#motherboard"],
+.tabs>#content-2:target~.tabs__links>a[href="#cpu"],
 .tabs>#content-3:target~.tabs__links>a[href="#content-3"] {
     background-color: #bbdefb;
     cursor: default;

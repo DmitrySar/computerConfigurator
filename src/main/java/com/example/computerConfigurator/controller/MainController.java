@@ -34,12 +34,18 @@ public class MainController {
     @PostMapping("addMb")
     public String addMb(@ModelAttribute MotherBoard mb) {
         mbRepository.save(mb);
-        return "redirect:/addcomponents";
+        return "redirect:/addcomponents#motherboard";
+    }
+
+    @GetMapping("delMotherboard")
+    public String delMotherboard(@RequestParam int id) {
+        mbRepository.delete(mbRepository.findById(id).get());
+        return "redirect:/addcomponents#motherboard";
     }
 
     @PostMapping("addCpu")
     public String addCpu(@ModelAttribute Cpu cpu) {
         cpuRepository.save(cpu);
-        return "redirect:/addcomponents";
+        return "redirect:/addcomponents#cpu";
     }
 }

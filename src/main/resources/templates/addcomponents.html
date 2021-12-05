@@ -9,7 +9,7 @@
 <h1>Добавление модулей</h1>
 
 <div class="tabs">
-    <div id="content-1">
+    <div id="motherboard">
         <h2>Add motherboard</h2>
         <form method="post" action="/addcomponents/addMb" th:object="${mboard}">
             <div th:replace="fragments/types :: module(name ='caseFormFactor', values = ${caseFormsFactor})" />
@@ -35,11 +35,12 @@
                 <td th:text="${mb.ramType}" />
                 <td th:text="${mb.hddType}" />
                 <span th:replace="fragments/manufacturer :: table(m = ${mb})" />
+                <td><a th:href="@{/addcomponents/delMotherboard(id=${mb.id})}"> del </a> </td>
             </tr>
         </table>
     </div>
 
-    <div id="content-2">
+    <div id="cpu">
         <h2>Add CPU</h2>
         <form action="/addcomponents/addCpu" method="post" th:object="${cpu}">
             <select name="cpuSocket">
@@ -56,6 +57,7 @@
             <tr th:each="c: ${cpuList}">
                 <td th:text="${c.cpuSocket}" />
                 <span th:replace="fragments/manufacturer :: table(m = ${c})" />
+                <td><a th:href="@{/cpu/delcpu(id=${c.id})}"> del </a> </td>
             </tr>
         </table>
     </div>
@@ -63,8 +65,8 @@
 <!--        TODO: RAM add form append-->
     </div>
     <div class="tabs__links">
-        <a href="#content-1">Материнская плата</a>
-        <a href="#content-2">Процессор</a>
+        <a href="#motherboard">Материнская плата</a>
+        <a href="#cpu">Процессор</a>
         <a href="#content-3">Оперативная память</a>
     </div>
 </div>
