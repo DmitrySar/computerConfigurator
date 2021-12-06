@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+    <link href="css/table.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="fragments/head :: navigations"/>
+<div>
+    <table class="modules">
+        <th>Socket</th>
+        <div th:replace="fragments/manufacturer :: tableTh" />
+        <tr th:each="c: ${cpuList}">
+            <td th:text="${c.cpuSocket}" />
+            <span th:replace="fragments/manufacturer :: table(m = ${c})" />
+        </tr>
+    </table>
+</div>
+</body>
+</html>
