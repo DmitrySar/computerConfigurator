@@ -28,6 +28,7 @@
                 <th>Ram type</th>
                 <th>Hdd type</th>
                 <div th:replace="fragments/manufacturer :: tableTh" />
+                <th>remove</th>
             </tr>
             <tr th:each="mb: ${motherboards}">
                 <td th:text="${mb.caseFormFactor}" />
@@ -52,10 +53,12 @@
         <table class="modules">
             <th>Socket</th>
             <div th:replace="fragments/manufacturer :: tableTh" />
+            <th>remove</th>
             <tr th:each="c: ${cpuList}">
                 <td th:text="${c.cpuSocket}" />
                 <span th:replace="fragments/manufacturer :: table(m = ${c})" />
                 <td><a th:href="@{/cpu/delcpu(id=${c.id})}"> del </a> </td>
+
             </tr>
         </table>
     </div>
