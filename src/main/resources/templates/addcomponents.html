@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Add components</title>
-    <link href="tabs.css" rel="stylesheet">
+    <link href="css/tabs.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
+    <link href="css/table.css" rel="stylesheet">
 </head>
 <body>
 <h1>Добавление модулей</h1>
 
 <div class="tabs">
     <div id="motherboard">
-        <h2>Add motherboard</h2>
         <form method="post" action="/addcomponents/addMb" th:object="${mboard}">
             <div th:replace="fragments/types :: module(name ='caseFormFactor', values = ${caseFormsFactor})" />
             <div th:replace="fragments/types :: module(name = 'cpuSocket', values = ${cpuSockets})" />
@@ -20,8 +21,7 @@
             <input type="submit" value="add">
         </form>
 
-        <h2> Motherboards </h2>
-        <table>
+        <table class="modules">
             <tr>
                 <th>FormFactor</th>
                 <th>Cpu socket</th>
@@ -41,7 +41,6 @@
     </div>
 
     <div id="cpu">
-        <h2>Add CPU</h2>
         <form action="/addcomponents/addCpu" method="post" th:object="${cpu}">
             <select name="cpuSocket">
                 <option th:each="c: ${cpuSockets}" th:value="${c}" th:text="${c}" />
@@ -50,8 +49,7 @@
             <input type="submit" value="add CPU">
         </form>
 
-        <h2>CPU list</h2>
-        <table>
+        <table class="modules">
             <th>Socket</th>
             <div th:replace="fragments/manufacturer :: tableTh" />
             <tr th:each="c: ${cpuList}">
